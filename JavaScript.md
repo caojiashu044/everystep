@@ -26,6 +26,6 @@ let person={
   
   for(let i = 0;i < keys.length;i++){
   console.log('键名：' + keys[i] + '; 键值：' + person[keys[i]]);
-
+的
 ```
-
+ 
