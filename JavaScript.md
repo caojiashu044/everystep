@@ -135,13 +135,81 @@ const jsonStr2 = JSON.stringify(obj)
 
 
 
+### 7.5 内置对象——Math、Storage
+
+该对象不是构造函数，不能生成实例，所有的属性和方法都必须在Math对象上调用
+
+#### 常量
+提供一些数学常数
+```
+Math.E // 常数e。
+Math.LN2 // 2 的自然对数。
+Math.LN10 // 10 的自然对数。
+Math.LOG2E // 以 2 为底的e的对数。
+Math.LOG10E // 以 10 为底的e的对数。
+Math.PI // 常数π。
+Math.SQRT1_2 // 0.5 的平方根。
+Math.SQRT2 // 2 的平方根。
+
+```
+
+一般使用比较多的是常熟π，即`Math.PI`。
 
 
+#### 静态方法
+
+```
+Math.abs() // 绝对值
+Math.ceil() // 向上取整
+Math.floor() // 向下取整
+Math.round() // 四舍五入取整
+Math.max() // 最大值
+Math.min() // 最小值
+Math.pow() // 指数运算
+Math.sqrt() // 平方根
+Math.log() // 自然对数
+Math.exp() // e的指数
+Math.random() // 随机数
+```
+
+> 以上方法除了Math.random()都需要传入合适的参数
+
+注意几个取整方法
+
+```
+Math.ceil(4.6) // 向上取整，取大于等于 x，并且与它最接近的整数。
+Math.floor(4.6) // 向下取整，取小于等于 x，并且与它最接近的整数。
+Math.round(4.6) // 四舍五入取整，取与 x 最接近的整数。
+
+```
+
+输出：
+
+```
+5
+4
+5
+```
 
 
+#### Storage对象
 
 
+Storage接口用于脚本在浏览器保存数据，两个对象部署了这个接口：window.sessionStorage和window.localStorage
 
+sessionStoreage保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空，localStorage保存的数据长期存在，在下一次访问的时候，可以读取以前保存的数据。
+
+#### 数据的存入：setItem
+
+写法：
+
+```
+window.localStorage.setItem('myLocalStorge','storeage Value');
+
+```
+window.localStorage.setItem('key','value');//键名和键值
+
+两个参数都是字符串，不是字符串的参数会转成字符串后再存入浏览器
 
 
 
