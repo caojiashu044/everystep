@@ -326,7 +326,7 @@ if (index) {
 ```
 const splitedStr = 'a|b|c'.split('|');
 console.log(splitedStr);
-
+//返回一个数组
 ```
 
 
