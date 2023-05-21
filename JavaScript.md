@@ -211,30 +211,130 @@ window.localStorage.setItem('key','value');//键名和键值
 
 两个参数都是字符串，不是字符串的参数会转成字符串后再存入浏览器
 
+打开网页开发者工具（右键=>检查=>应用程序=>本地存储）,查看存储情况，如果是空的可以在console写一段代码（同上），再查看。
+
+注意，入股要存入的数据不是字符型的数据，最好先转换成字符型比如：
+
+```
+const obj = {
+  name: 'henry',
+  age: 18
+}
+const value = JSON.stringify(obj);
+window.localStorage.setItem('myLocalStorage', value);
+```
+>JSON.stringifly()方法可以将一个js值转换为JSON字符串
 
 
+#### 读取数据：getltem
+写法：
+
+```
+window.localStorage.getItem('myLocalStorage');
 
 
+```
+
+window.localStorage.getItem('key');接受一个参数，即为键名
+
+操作方法同上，前提是浏览器中存有这个key
 
 
+#### 清除存档：clear
+
+写法：
+
+```
+window.localStorage.clear();
+```
+
+### 7.6内置对象——String
+
+js原生提供三个包装对象之一就是String(另外两个是Number和Boolean)
 
 
+包装对象
+```
+let v2 = new String('abc');
+
+```
+
+利于调用某些方法
+
+#### 字符串长度：length
+
+```
+let len = 'here is an apple'.length;
+```
+字符串的空也是计算在内
+
+#### 查找字符：indexOf()
 
 
+从字符串中查找某个字符串是否存在：
+
+```
+let str = 'here is an apple';
+const index = str.indexOf('an');
+console.log(index);
+```
+返回值为8
+
+当不存在子字符串的时候，返回-1
+
+#### 去掉两端空格：trim（）
+
+```
+// 'here' 之前有一个空格，'apple' 之后有三个空格
+let str = ' here is an apple   ';
+const trimedStr = str.trim();//不会修改原来字符串，而是作为新的字符串返回
+console.log(str.length);
+console.log(trimedStr.length);
+```
+
+#### 截取字符串：substring/substr
+
+```
+let url = 'https://www.youkeda.com/userhome#collect';
+
+// 首先找到 # 后第一个字母的下标
+const index = url.indexOf('#') + 1;
+
+// 有 hash 才能进行截取，没有就直接提示不存在
+if (index) {
+  // 用 substring 截取字符串
+  const hash1 = url.substring(index, url.length);
+
+  // 计算 hash 的长度
+  const lenHash = url.length - index;
+  // 用 substr 截取字符串
+  const hash2 = url.substr(index, lenHash);
+
+  console.log(hash1);
+  console.log(hash2);
+} else {
+  console.log('不存在 hash');
+}
+
+```
+
+>substring(star,end)
+>substr(star,len)
+
+#### 分割字符串：split
+
+```
+const splitedStr = 'a|b|c'.split('|');
+console.log(splitedStr);
+
+```
 
 
+输出：
 
-
-
-
-
-
-
-
-
-
-
-
+```
+['a','b','c']
+```
 
 
 
